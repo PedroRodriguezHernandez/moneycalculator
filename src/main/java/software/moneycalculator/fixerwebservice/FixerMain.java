@@ -1,13 +1,9 @@
 package software.moneycalculator.fixerwebservice;
 
 import software.moneycalculator.Currency;
-import software.moneycalculator.CurrencyLoader;
 import software.moneycalculator.ExchangeRateLoader;
 
-import java.awt.*;
-import java.util.List;
-
-public class Main {
+public class FixerMain {
     public static void main(String[] args) {
         /*
         CurrencyLoader currencyLoader = new FixerCurrencyLoader();
@@ -17,9 +13,9 @@ public class Main {
         }
         */
 
-       Currency from = new Currency("USD", "Dolar United States");
+       Currency from = new Currency("USD", "United States dollar");
        Currency to = new Currency("EUR", "Euro");
-       ExchangeRateLoader exchangeRateLoader = new FixerExchangeRateLoader(from, to);
-       System.out.println(exchangeRateLoader.load().toString());
+       ExchangeRateLoader exchangeRateLoader = new FixerExchangeRateLoader();
+       System.out.println(exchangeRateLoader.load(from, to).toString());
     }
 }

@@ -15,21 +15,15 @@ import java.util.List;
 import java.util.Map;
 
 public class FixerExchangeRateLoader implements ExchangeRateLoader {
-
-    private final Currency from;
-    private final Currency to;
-
-
-    public FixerExchangeRateLoader(Currency from, Currency to) {
+    private Currency to;
+    private  Currency from;
+    @Override
+    public ExchangeRate load(Currency from, Currency to) {
         this.from = from;
         this.to = to;
-    }
-
-    @Override
-    public ExchangeRate load() {
         try {
             return toExchangeRate(fromJson());
-        }catch (IOException e){
+        } catch (IOException e) {
             return null;
         }
     }
@@ -63,6 +57,5 @@ public class FixerExchangeRateLoader implements ExchangeRateLoader {
             return new String(is.readAllBytes());
         }
     }
-
 
 }

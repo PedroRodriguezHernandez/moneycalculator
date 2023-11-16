@@ -1,5 +1,5 @@
 package software.moneycalculator;
 
 public interface ExchangeRateLoader {
-    ExchangeRate load();
+    ExchangeRate load(Currency from, Currency to);
 }
